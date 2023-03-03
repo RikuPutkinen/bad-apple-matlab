@@ -3,7 +3,7 @@ clc
 clearvars
 close all
 
-matrixDir = 'C:\Users\putki\Documents\MATLAB tiedostot\Perseily\Bad Apple\Matrixes160p';
+matrixDir = ''; % MATRIX SOURCE DIRECTORY HERE
 cd(matrixDir)
 
 matrixList = dir('*.txt');
@@ -18,6 +18,8 @@ for i=1:length(matrixList)
     pause(0.012)
 end
 
+% Helps check how accurate the timing is
+% Adjust the pause on line 18 if necessary
 eTime = toc
 averageTime = eTime / length(matrixList)
 target = 3*60 + 40

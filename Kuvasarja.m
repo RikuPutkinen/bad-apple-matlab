@@ -1,17 +1,18 @@
 % Kuvasarja.m
+% Break the video into frames
 
-% Muodosta kuvasarja
-workingDir = 'C:\Users\putki\Documents\MATLAB tiedostot\Perseily\MoP';
-%mkdir(workingDir)
-%cd(workingDir)
-%mkdir(workingDir, 'MoP')
+workingDir = ''; % DESTINATION DIRECTORY HERE
+videoDir = ''; % VIDEO SOURCE HERE
 
-BAVideo = VideoReader("C:\Users\putki\Downloads\MoP.mp4");
+mkdir(workingDir)
+cd(workingDir)
+mkdir(workingDir, 'frames');
+video = VideoReader(videoDir);
+
 
 ii = 1;
-
-while hasFrame(BAVideo)
-    img = readFrame(BAVideo);
+while hasFrame(video)
+    img = readFrame(video);
     filename = [sprintf('%04d',ii) '.jpg'];
     fullname = fullfile(workingDir, filename);
     imwrite(img, fullname)
@@ -19,7 +20,3 @@ while hasFrame(BAVideo)
 end
 
 disp('Done.')
-
-
-
-
